@@ -53,7 +53,22 @@ const playerSelection = "PapER";
 
 const computerSelection = computerPlay();
 
-console.log("You play " + playerSelection);
-console.log("Computer plays " + computerSelection);
 
-console.log(oneRound(playerSelection, computerSelection));
+
+
+
+//create new function game(). call playRound inside this
+// to play a five round game that keeps score
+
+function game() {
+    for (let i=0; i < 5; i++) {
+        console.log(i);
+        console.log("You play " + playerSelection);
+        console.log("Computer plays " + computerSelection);
+        console.log(oneRound(playerSelection, computerSelection));
+        
+    }
+
+}
+
+console.log(game());
