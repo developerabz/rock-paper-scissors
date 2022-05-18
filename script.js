@@ -70,7 +70,7 @@ function game() {
 
     for (let i=0; i < 5; i++) {
        
-        playerSelection = prompt("enter rps", "");
+        playerSelection = prompt("Choose Rock, Paper or Scissors!", "");
         console.log("You play " + playerSelection);
         console.log("Computer plays " + computerSelection);
         console.log(oneRound(playerSelection, computerSelection));
