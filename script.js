@@ -5,14 +5,15 @@ function computerPlay(hand) {
     
     hand = Math.floor(Math.random()*3 + 1);
 
+        if (hand === 1) {
+            return "Rock"
+        } else if (hand === 2) {
+            return "Paper"
+        } else {
+            return "Scissors"
+        }
+    
 
-    if (hand === 1) {
-        return "Rock"
-    } else if (hand === 2) {
-        return "Paper"
-    } else {
-        return "Scissors"
-    }
 
     
 }
@@ -27,31 +28,34 @@ function computerPlay(hand) {
 
 function oneRound(playerSelection, computerSelection) {
     
+
     if (playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") {
-        return "Tie by rock";
+        return `Tie by rock, you = ${playerPoint} computer = ${computerPoint}`;
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
-        return "Tie by paper";
+        return `Tie by paper, you = ${playerPoint} computer = ${computerPoint}`;
     } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
-        return "Tie by Scissors";
+        return `Tie by Scissors, you = ${playerPoint} computer = ${computerPoint}`;
     } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
-        return "Lose to paper";
+        return `Lose to paper, you = ${playerPoint} computer = ${++computerPoint}`;
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
-        return "Lose to scissors";
+        return `Lose to scissors, you = ${playerPoint} computer = ${++computerPoint}`;
     } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
-        return "Lose to rock";
+        return `Lose to rock, you = ${playerPoint} computer = ${++computerPoint}`;
     } else if (playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
-        return "Win with rock";
+        return `Win with rock, you = ${++playerPoint} computer = ${computerPoint}`;
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
-        return "Win with paper";
+        return `Win with paper, you = ${++playerPoint} computer = ${computerPoint}`;
     } else if (playerSelection.toLowerCase() === "scissors" && computerSelection === "Paper") {
-        return "Win with scissors";
+        return `Win with scissors, you = ${++playerPoint} computer = ${computerPoint}`;
     }
 
 }
 
-const playerSelection = "PapER";
+    let playerSelection = prompt("enter rps", "");
 
-const computerSelection = computerPlay();
+    let computerSelection = computerPlay();
+
+
 
 
 
@@ -60,13 +64,27 @@ const computerSelection = computerPlay();
 //create new function game(). call playRound inside this
 // to play a five round game that keeps score
 
+//stop game from looping computer randomised rock paper scissors 
+
+let playerPoint = 0;
+let computerPoint = 0;
+
 function game() {
+    
+
     for (let i=0; i < 5; i++) {
-        console.log(i);
+       
+        playerSelection = prompt("enter rps", "");
         console.log("You play " + playerSelection);
         console.log("Computer plays " + computerSelection);
         console.log(oneRound(playerSelection, computerSelection));
-        
+        if (i === 4) {
+            if (playerPoint > computerPoint) {
+                console.log("You Win!");
+            } else {
+                console.log("You lose")
+            }
+        } 
     }
 
 }
