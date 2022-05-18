@@ -51,20 +51,16 @@ function oneRound(playerSelection, computerSelection) {
 
 }
 
-    let playerSelection = prompt("enter rps", "");
+    let playerSelection = prompt("Choose Rock, Paper or Scissors!", "");
 
     let computerSelection = computerPlay();
-
-
-
-
-
 
 
 //create new function game(). call playRound inside this
 // to play a five round game that keeps score
 
 //stop game from looping computer randomised rock paper scissors 
+//game stops looping once prompt added to for loop, i.e. line 73
 
 let playerPoint = 0;
 let computerPoint = 0;
