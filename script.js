@@ -71,6 +71,7 @@ function game() {
     for (let i=0; i < 5; i++) {
        
         playerSelection = prompt("Choose Rock, Paper or Scissors!", "");
+        computerSelection = computerPlay();
         console.log("You play " + playerSelection);
         console.log("Computer plays " + computerSelection);
         console.log(oneRound(playerSelection, computerSelection));
