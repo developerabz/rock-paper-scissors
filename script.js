@@ -65,7 +65,7 @@ function oneRound(playerSelection, computerSelection) {
 let playerPoint = 0;
 let computerPoint = 0;
 
-function game() {
+/*function game() {
     
 
     for (let i=0; i < 5; i++) {
@@ -86,4 +86,6 @@ function game() {
 
 }
 
-console.log(game());
+console.log(game());*/
+
+
