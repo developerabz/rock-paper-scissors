@@ -14,7 +14,7 @@ function computerPlay() {
     let hand = Math.floor(Math.random()*3 + 1);
     
     let allrps = ["Rock", "Paper", "Scissors"];
-    computermove.textContent = allrps[hand - 1];
+    computermove.textContent = "Computer: " + allrps[hand - 1];
     container.appendChild(computermove);
     return allrps[hand - 1];
 }
@@ -90,35 +90,32 @@ const buttons = document.querySelectorAll('button');
                 playerSelection = "rock";
                 const playermover = document.createElement('p');
                 playermover.classList.toggle("playermover");
-                playermover.textContent = "rock";
+                playermover.textContent = "You: Rock";
                 container.appendChild(playermover);
-                console.log(playerSelection === "rock");
+                playerSelection === "rock";
                 
                 if (playerSelection === "rock") {
-                    console.log(computerSelection());
-                    console.log(oneRound(playerSelection, computerSelection));
+                    oneRound(playerSelection, computerSelection());
                 }
             } else if (button.classList.contains("paper")) {
                 playerSelection = "paper";
                 const playermovep = document.createElement('p');
                 playermovep.classList.toggle("playermovep");
-                playermovep.textContent = "paper";
+                playermovep.textContent = "You: Paper";
                 container.appendChild(playermovep);
                 
                 if (playerSelection === "paper") {
-                    computerSelection();
-                    oneRound(playerSelection, computerSelection);
+                    oneRound(playerSelection, computerSelection());
                 }
             } else if (button.classList.contains("scissors")) {
                 playerSelection = "scissors";
                 const playermoves = document.createElement('p');
                 playermoves.classList.toggle("playermoves");
-                playermoves.textContent = "scissors";
+                playermoves.textContent = "You: Scissors";
                 container.appendChild(playermoves);
                 
                 if (playerSelection === "scissors") {
-                    computerSelection();
-                    oneRound(playerSelection, computerSelection);
+                    oneRound(playerSelection, computerSelection());
                 }
             }
         });
@@ -165,3 +162,22 @@ console.log(game());*/
 
 
 
+
+
+
+/* last working on trying to get the oneRound function to 
+work and print on screen. Things I have checked are: 
+- both computer and player selection. They are working
+- may be an issue with actual text content printing
+- may need to try converting all three to console log form
+again as the real problem in console log form was random
+was not working. Now got it to work while I was changing
+the dom manipulation but it wasnt due to the dom manipulation.
+It was due to the function not being properly assigned
+to the variable.
+- e.g. meant to be const a = b; instead of const a = b();
+- and then when calling call with a() instead of a;
+- might be that change in assigning affected the 
+oneRound function, could also try to move
+around the computerSelection variable
+After this will be having a total occur after five games. */
