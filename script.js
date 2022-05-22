@@ -118,7 +118,9 @@ const buttons = document.querySelectorAll('button');
                     oneRound(playerSelection, computerSelection());
                 }
             }
+            game();
         });
+
     
     });
 
@@ -131,31 +133,31 @@ const buttons = document.querySelectorAll('button');
 //stop game from looping computer randomised rock paper scissors 
 //game stops looping once prompt added to for loop, i.e. line 73
 
-let playerPoint = 0;
+
+
+let playerPoint = 0
 let computerPoint = 0;
-
-/*function game() {
+let gamePoint = 0;
+function game() {
     
+    const gamedecision = document.createElement('p');
+    gamedecision.classList.toggle("gamedecision");
 
-    for (let i=0; i < 5; i++) {
-       
-        playerSelection = prompt("Choose Rock, Paper or Scissors!", "");
-        computerSelection = computerPlay();
-        console.log("You play " + playerSelection);
-        console.log("Computer plays " + computerSelection);
-        console.log(oneRound(playerSelection, computerSelection));
-        if (i === 4) {
-            if (playerPoint > computerPoint) {
-                console.log("You Win!");
-            } else {
-                console.log("You lose")
-            }
-        } 
+    if (playerPoint >= 0 || computerPoint >= 0) {
+    gamePoint += 1;
+        if (gamePoint === 5 && playerPoint > computerPoint) {
+            gamedecision.textContent = "You Win!";
+            container.appendChild(gamedecision);
+        } else if (gamePoint === 5 && playerPoint < computerPoint) {
+            gamedecision.textContent = "You Lose!";
+            container.appendChild(gamedecision);
+        } else if (gamePoint === 5 && playerPoint === computerPoint) {
+            gamedecision.textContent = "You Tie!";
+        }
     }
 
 }
 
-console.log(game());*/
 
 // create button that returns name on button in console
 
@@ -181,3 +183,7 @@ to the variable.
 oneRound function, could also try to move
 around the computerSelection variable
 After this will be having a total occur after five games. */
+
+// 22nd May (day after): The issue was actually calling
+// oneRound(playerSelection, computerSelection()) instead of
+// oneRound(playerSelection, computerSelection) and then remove computerSelection()
